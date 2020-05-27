@@ -12,7 +12,7 @@ export default class App extends Component {
       description: ""
     }
   }
-
+  // componentDidMount will run at the same time with opening browser
   componentDidMount = () => {
     navigator.geolocation.getCurrentPosition((post) => {
       this.getWeather(post.coords.latitude, post.coords.longitude)
@@ -20,7 +20,7 @@ export default class App extends Component {
   }
 
   async getWeather(latitude, longitude) {
-    const API_KEY = "524433393f1ecf8af511b3c51ea6db8d";
+    const API_KEY = process.env.REACT_APP_APIKEY;
     const url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
     try {
       let response = await fetch(url);
@@ -59,9 +59,14 @@ export default class App extends Component {
     } = this.state;
 
     if (!isReady) return (
-      <div>Hihi</div>
+      // Spinner
+      <h1>Spinner will be here</h1>
+      // <div>
+      //   <Spinner/>`
+      // </div>
     );
     else return (
+
       <div className="container-fluid text-white my-auto">
         <div className="container mx-auto my-4 py-4">
           <div className="row justify-content-center text-center">
@@ -79,5 +84,8 @@ export default class App extends Component {
 }
 
 // spinner
+
+
+
 // long + lat : cities
 // get api theo ngay
