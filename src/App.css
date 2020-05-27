@@ -1,4 +1,9 @@
-body {
+.container {
     height: 100%;
     background-color: black;
+}
+
+.temperature-part {
+    display: flex;
+    justify-content: center;
 }
