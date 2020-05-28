@@ -25,7 +25,7 @@ export default class App extends Component {
     navigator.geolocation.getCurrentPosition((post) => {
       const long = post.coords.longitude;
       const lat = post.coords.latitude;
-      const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}`;
 
       // this.getWeather(url);
       this.getForecast(url);
